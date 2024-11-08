@@ -15,8 +15,7 @@ Original file is located at
 # %%writefile app.py
 # import streamlit as st
 # 
-# st.title("Electoral Insights")
-# st.write("A study of Turnout and Advertising Strategies in India's Elections")
+
 # 
 # 
 #
@@ -26,6 +25,9 @@ import numpy as np
 import streamlit as st
 import seaborn as sns
 import matplotlib.pyplot as plt
+
+st.title("Electoral Insights")
+st.write("A study of Turnout and Advertising Strategies in India's Elections")
 
 # ADVERTISER'S DATASET
 advtdf = pd.read_csv('https://raw.githubusercontent.com/Parnika798/psychic-palm-tree/main/advertisers.csv')
