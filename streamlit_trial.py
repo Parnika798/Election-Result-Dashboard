@@ -79,34 +79,35 @@ col1, col2, col3 = st.columns([2, 1, 1])  # [2, 1, 1] means first column takes t
 
 # Ad Spend vs. Total Votes
 with col1:
-st.subheader('Ad Spend vs. Total Votes')
-sns.scatterplot(y='Total Votes', x='Amount spent (INR)', data=merged, color='orange')
-plt.ylabel('Total votes cast')
-plt.xlabel('Total amount spent on advertising in INR')
-plt.title('Ad Spend vs. Total Votes', fontsize=25, fontweight='bold')
-st.pyplot(plt)
+    st.subheader('Ad Spend vs. Total Votes')
+    sns.scatterplot(y='Total Votes', x='Amount spent (INR)', data=merged, color='orange')
+    plt.ylabel('Total votes cast')
+    plt.xlabel('Total amount spent on advertising in INR')
+    plt.title('Ad Spend vs. Total Votes', fontsize=25, fontweight='bold')
+    st.pyplot(plt)
+
 
 # Ad Spend vs. Voter Turnout
 with col2:
-st.subheader('Ad Spend vs. Voter Turnout')
-sns.scatterplot(x='Amount spent (INR)', y='Polled (%)', data=merged, color='blue')
-plt.title('Ad Spend vs. Voter Turnout', fontsize=25, fontweight='bold')
-plt.xlabel('Total amount spent on advertising in INR')
-plt.ylabel('Percentage of votes polled')
-st.pyplot(plt)
+    st.subheader('Ad Spend vs. Voter Turnout')
+    sns.scatterplot(x='Amount spent (INR)', y='Polled (%)', data=merged, color='blue')
+    plt.title('Ad Spend vs. Voter Turnout', fontsize=25, fontweight='bold')
+    plt.xlabel('Total amount spent on advertising in INR')
+    plt.ylabel('Percentage of votes polled')
+    st.pyplot(plt)
 
 # State vs. Ad Spend
 with col3:
-st.subheader('State vs. Ad Spend')
-plt.figure(figsize=(12, 8))
-plt.grid(True, zorder=1)
-sns.barplot(x='State', y='Amount spent (INR)', data=merged, palette=['#E34234', '#2E8B57'], zorder=2)
-plt.xlabel('States', fontsize=14, fontweight='bold')
-plt.ylabel('Total amount spent on advertising in INR', fontsize=14, fontweight='bold')
-plt.title('State vs. Ad Spend', fontsize=25, fontweight='bold')
-plt.xticks(rotation=90, ha='center', fontsize=12)
-plt.tight_layout()
-st.pyplot(plt)
+   st.subheader('State vs. Ad Spend')
+   plt.figure(figsize=(12, 8))
+   plt.grid(True, zorder=1)
+   sns.barplot(x='State', y='Amount spent (INR)', data=merged, palette=['#E34234', '#2E8B57'], zorder=2)
+   plt.xlabel('States', fontsize=14, fontweight='bold')
+   plt.ylabel('Total amount spent on advertising in INR', fontsize=14, fontweight='bold')
+   plt.title('State vs. Ad Spend', fontsize=25, fontweight='bold')
+   plt.xticks(rotation=90, ha='center', fontsize=12)
+   plt.tight_layout()
+   st.pyplot(plt)
 
 # State vs. Voter Turnout
 st.subheader('State vs. Voter Turnout')
