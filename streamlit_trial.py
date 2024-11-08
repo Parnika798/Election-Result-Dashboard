@@ -99,6 +99,13 @@ with col2:
     st.pyplot(plt)
     plt.clf()
 
+# Ensure 'Amount spent (INR)' is numeric, converting non-numeric values to NaN
+advtdf['Amount spent (INR)'] = pd.to_numeric(advtdf['Amount spent (INR)'], errors='coerce')
+
+# Heading for the dropdown selection
+st.markdown("<h2 style='text-align: center; color: #4CAF50;'>Election 2024: Key Metrics Overview</h2>", unsafe_allow_html=True)
+
+# Dropdown to select what to view
 option = st.selectbox(
     'Select an option to view key Election Metrics:',
     ('Total Amount Spent on Ads in 2024 Elections', 'Total Votes Polled in 2024 Elections')
@@ -107,12 +114,11 @@ option = st.selectbox(
 # Display the selected option
 if option == 'Total Amount Spent on Ads in 2024 Elections':
     total_amount_spent = advtdf['Amount spent (INR)'].sum()
-    st.markdown(f"**Total Amount Spent on Ads: ₹{total_amount_spent:,.0f}**")
+    st.markdown(f"**Total Amount Spent on Ads: ₹{total_amount_spent:,.0f}**", unsafe_allow_html=True)
 
 elif option == 'Total Votes Polled in 2024 Elections':
     total_votes_polled = merged['Total Votes'].sum()
-    st.markdown(f"**Total Votes Polled: {total_votes_polled:,.0f}**")
-
+    st.markdown(f"**Total Votes Polled: {total_votes_polled:,.0f}**", unsafe_allow_html=True)
 import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
