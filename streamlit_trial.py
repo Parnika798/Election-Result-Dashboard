@@ -186,6 +186,7 @@ st.pyplot(fig)
 
 import pandas as pd
 import matplotlib.pyplot as plt
+matplotlib.use('agg')
 import streamlit as st
 
 # Assuming 'advtdf' is already defined and available
