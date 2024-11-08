@@ -73,8 +73,12 @@ merged = pd.merge(locdf, resultsdf, left_on='Location name', right_on='State', h
 #st.write("Merged Dataset", merged)
 
 # DATA VISUALISATION AND ANALYSIS
+# Create columns with different widths (e.g., first column takes 2/4 width, second takes 1/4, third takes 1/4)
+
+col1, col2, col3 = st.columns([2, 1, 1])  # [2, 1, 1] means first column takes twice the space of the others
 
 # Ad Spend vs. Total Votes
+with col1:
 st.subheader('Ad Spend vs. Total Votes')
 sns.scatterplot(y='Total Votes', x='Amount spent (INR)', data=merged, color='orange')
 plt.ylabel('Total votes cast')
@@ -83,6 +87,7 @@ plt.title('Ad Spend vs. Total Votes', fontsize=25, fontweight='bold')
 st.pyplot(plt)
 
 # Ad Spend vs. Voter Turnout
+with col2:
 st.subheader('Ad Spend vs. Voter Turnout')
 sns.scatterplot(x='Amount spent (INR)', y='Polled (%)', data=merged, color='blue')
 plt.title('Ad Spend vs. Voter Turnout', fontsize=25, fontweight='bold')
@@ -91,6 +96,7 @@ plt.ylabel('Percentage of votes polled')
 st.pyplot(plt)
 
 # State vs. Ad Spend
+with col3:
 st.subheader('State vs. Ad Spend')
 plt.figure(figsize=(12, 8))
 plt.grid(True, zorder=1)
