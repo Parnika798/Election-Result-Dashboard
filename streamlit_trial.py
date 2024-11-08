@@ -357,7 +357,7 @@ elif summary_choice == 'Correlation Heatmap of voter turnout and Ad Metrics':
      """)
 
 
-else 
+else: 
     st.write("""
     **Summary:**
     The bar chart shows the distribution of ad spend across different states. State2 has the highest ad spend, 
