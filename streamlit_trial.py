@@ -8,7 +8,7 @@ Original file is located at
 """
 
 
-!pip install pyngrok
+
 
 # Commented out IPython magic to ensure Python compatibility.
 # # In a Colab cell
