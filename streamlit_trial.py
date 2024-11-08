@@ -79,7 +79,7 @@ col1, col2 = st.columns([5, 5])  # Adjust the widths as needed
 
 # Ad Spend vs. Total Votes
 with col1:
-    st.subheader('Ad Spend vs. Total Votes')
+    
     sns.scatterplot(y='Total Votes', x='Amount spent (INR)', data=merged, color='orange')
     plt.ylabel('Total votes cast')
     plt.xlabel('Total amount spent on advertising in INR')
@@ -92,7 +92,7 @@ with col1:
 # Ad Spend vs. Voter Turnout
 with col2:
     
-   st.subheader('Ad Spend vs. Voter Turnout')
+   
    sns.scatterplot(x='Amount spent (INR)', y='Polled (%)', data=merged, color='blue')
    plt.title('Ad Spend vs. Voter Turnout', fontsize=25, fontweight='bold')
    plt.xlabel('Total amount spent on advertising in INR')
@@ -102,7 +102,7 @@ with col2:
 
 # State vs. Ad Spend
 
-st.subheader('State vs. Ad Spend')
+
 plt.figure(figsize=(12, 8))
 plt.grid(True, zorder=1)
 sns.barplot(x='State', y='Amount spent (INR)', data=merged, palette=['#E34234', '#2E8B57'], zorder=2)
@@ -115,7 +115,7 @@ st.pyplot(plt)
 plt.clf()
 
 # State vs. Voter Turnout
-st.subheader('State vs. Voter Turnout')
+
 plt.figure(figsize=(12, 8))
 plt.grid(True, zorder=1)
 sorted_data = merged.sort_values(by='Polled (%)', ascending=False)
@@ -129,7 +129,7 @@ st.pyplot(plt)
 plt.clf()
 
 # Phase-wise Ad Spend
-st.subheader('Phase-wise Ad Spend')
+
 plt.figure(figsize=(12, 8))
 plt.grid(True, zorder=1)
 sns.barplot(x='Phase', y='Amount spent (INR)', data=merged, palette='Reds', zorder=2)
