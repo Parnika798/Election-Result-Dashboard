@@ -121,6 +121,8 @@ if option == 'Total Amount Spent on Ads in 2024 Elections':
 elif option == 'Total Votes Polled in 2024 Elections':
     total_votes_polled = merged['Total Votes'].sum()
     st.markdown(f"**Total Votes Polled: {total_votes_polled:,.0f}**", unsafe_allow_html=True)
+
+st.write("\n\n")
 import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
@@ -308,7 +310,8 @@ plt.title('Correlation Heatmap of Voter Turnout and Ad Spend Metrics', fontsize=
 st.pyplot(plt)
 plt.clf()
 
-
+# Heading for the dropdown selection
+st.markdown("<h2 style='text-align: right; color: teal;'>Key Insights</h2>", unsafe_allow_html=True)
 #Interactive Summaries Using a Dropdown or Selectbox
 summary_choice = st.selectbox('Select a graph to view its summary:', ['Ad Spend vs Total Votes', 'State vs Ad Spend', 'Ad Spend vs Voter Turnout', 'State vs Voter Turnout','Phase-wise Analysis', 'Total Electors and Polled(%) by State', 'Correlation Heatmap of voter turnout and Ad Metrics','Top 10 Contributors by Amount Spent on Advertising'])
 
