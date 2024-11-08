@@ -99,7 +99,7 @@ with col2:
     st.pyplot(plt)
     plt.clf()
 
-col7, col8 = st.columns([10, 4])  # Adjust the widths as needed
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
@@ -120,40 +120,26 @@ top_10_parties = party_ad_spend.head(10)
 explode = [0.05] * len(top_10_parties)  # 0.05 separates each slice by 5% of the radius
 
 # Create the Pie Chart
-with col7:
-    
-    plt.figure(figsize=(10, 8))
-    plt.pie(
-    top_10_parties,
-    labels=top_10_parties.index,
-    autopct='%1.1f%%',
-    startangle=140,
-    explode=explode,  # Applies the exploded effect to each slice
-    textprops={'fontsize': 8}
+plt.figure(figsize=(10, 8))
+plt.pie(
+top_10_parties,
+labels=top_10_parties.index,
+autopct='%1.1f%%',
+startangle=140,
+explode=explode,  # Applies the exploded effect to each slice
+textprops={'fontsize': 8}
 )
 
 
     
-    plt.title('Top 10 Contributors by Amount Spent on Advertising', fontweight='bold', fontsize=18)
+plt.title('Top 10 Contributors by Amount Spent on Advertising', fontweight='bold', fontsize=18)
 
-    # Ensure the pie is drawn as a circle
-    plt.axis('equal')
+# Ensure the pie is drawn as a circle
+plt.axis('equal')
 
-    # Display the plot in Streamlit
-    st.pyplot(plt)
-    plt.clf()
-
-# Display Total Amount Spent on Advertising in col8
-with col8:
-    # Assuming 'Amount spent (INR)' is the column for ad spend in INR
-    total_amount_spent = advtdf['Amount spent (INR)'].sum()  # Use correct dataset column
-    st.markdown("<div style='border: 5px solid black; padding: 20px; border-radius: 10px; text-align: center;'>", unsafe_allow_html=True)
-    st.markdown("<h3 style='text-align: center; color: black;'>Total Amount Spent on Advertising (INR)</h3>", unsafe_allow_html=True)
-    st.markdown(f"<h1 style='text-align: center; color: rgba(255, 99, 71, 0.5);'>₹{total_amount_spent:,.0f}</h1>", unsafe_allow_html=True)
-   
-
-
-
+# Display the plot in Streamlit
+st.pyplot(plt)
+plt.clf()
 
 
 
