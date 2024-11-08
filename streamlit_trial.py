@@ -99,7 +99,7 @@ with col2:
     st.pyplot(plt)
     plt.clf()
 
-col7, col8 = st.columns([10, 5])  # Adjust the widths as needed
+col7, col8 = st.columns([10, 2])  # Adjust the widths as needed
 import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
@@ -149,7 +149,7 @@ with col8:
     total_amount_spent = advtdf['Amount spent (INR)'].sum()  # Use correct dataset column
 
     st.markdown("<h3 style='text-align: center; color: black;'>Total Amount Spent on Advertising (INR)</h3>", unsafe_allow_html=True)
-    st.markdown(f"<h1 style='text-align: center; color: #4CAF50;'>₹{total_amount_spent:,.0f}</h1>", unsafe_allow_html=True)
+    st.markdown(f"<h1 style='text-align: center; color: rgba(255, 99, 71, 0.5);'>₹{total_amount_spent:,.0f}</h1>", unsafe_allow_html=True)
    
 
 
