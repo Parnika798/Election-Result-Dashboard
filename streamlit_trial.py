@@ -99,6 +99,19 @@ with col2:
     st.pyplot(plt)
     plt.clf()
 
+option = st.selectbox(
+    'Select an option to view:',
+    ('Total Amount Spent on Ads', 'Total Votes Polled')
+)
+
+# Display the selected option
+if option == 'Total Amount Spent on Ads in 2024 Election':
+    total_amount_spent = advtdf['Amount spent (INR)'].sum()
+    st.markdown(f"**Total Amount Spent on Ads: ₹{total_amount_spent:,.0f}**")
+
+elif option == 'Total Votes Polled in 2024 Elections':
+    total_votes_polled = merged['Total Votes'].sum()
+    st.markdown(f"**Total Votes Polled: {total_votes_polled:,.0f}**")
 
 import pandas as pd
 import matplotlib.pyplot as plt
