@@ -100,12 +100,12 @@ with col2:
     plt.clf()
 
 option = st.selectbox(
-    'Select an option to view:',
-    ('Total Amount Spent on Ads', 'Total Votes Polled')
+    'Select an option to view key Election Metrics:',
+    ('Total Amount Spent on Ads in 2024 Elections', 'Total Votes Polled in 2024 Elections')
 )
 
 # Display the selected option
-if option == 'Total Amount Spent on Ads in 2024 Election':
+if option == 'Total Amount Spent on Ads in 2024 Elections':
     total_amount_spent = advtdf['Amount spent (INR)'].sum()
     st.markdown(f"**Total Amount Spent on Ads: ₹{total_amount_spent:,.0f}**")
 
