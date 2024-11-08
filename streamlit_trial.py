@@ -85,6 +85,7 @@ plt.ylabel('Total votes cast')
 plt.xlabel('Total amount spent on advertising in INR')
 plt.title('Ad Spend vs. Total Votes', fontsize=25, fontweight='bold')
 st.pyplot(plt)
+plt.clf()
 
 
 # Ad Spend vs. Voter Turnout
