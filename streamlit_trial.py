@@ -74,28 +74,31 @@ merged = pd.merge(locdf, resultsdf, left_on='Location name', right_on='State', h
 
 # DATA VISUALISATION AND ANALYSIS
 # Create columns with different widths (e.g., first column takes 2/4 width, second takes 1/4, third takes 1/4)
-
+col1, col2 = st.columns([3, 3])  # Adjust the widths as needed
 
 
 # Ad Spend vs. Total Votes
+with col1:
+    st.subheader('Ad Spend vs. Total Votes')
+    sns.scatterplot(y='Total Votes', x='Amount spent (INR)', data=merged, color='orange')
+    plt.ylabel('Total votes cast')
+    plt.xlabel('Total amount spent on advertising in INR')
+    plt.title('Ad Spend vs. Total Votes', fontsize=25, fontweight='bold')
+    st.pyplot(plt)
+    plt.clf()
 
-st.subheader('Ad Spend vs. Total Votes')
-sns.scatterplot(y='Total Votes', x='Amount spent (INR)', data=merged, color='orange')
-plt.ylabel('Total votes cast')
-plt.xlabel('Total amount spent on advertising in INR')
-plt.title('Ad Spend vs. Total Votes', fontsize=25, fontweight='bold')
-st.pyplot(plt)
-plt.clf()
 
 
 # Ad Spend vs. Voter Turnout
-st.subheader('Ad Spend vs. Voter Turnout')
-sns.scatterplot(x='Amount spent (INR)', y='Polled (%)', data=merged, color='blue')
-plt.title('Ad Spend vs. Voter Turnout', fontsize=25, fontweight='bold')
-plt.xlabel('Total amount spent on advertising in INR')
-plt.ylabel('Percentage of votes polled')
-st.pyplot(plt)
-plt.clf()
+with col2:
+    
+   st.subheader('Ad Spend vs. Voter Turnout')
+   sns.scatterplot(x='Amount spent (INR)', y='Polled (%)', data=merged, color='blue')
+   plt.title('Ad Spend vs. Voter Turnout', fontsize=25, fontweight='bold')
+   plt.xlabel('Total amount spent on advertising in INR')
+   plt.ylabel('Percentage of votes polled')
+   st.pyplot(plt)
+   plt.clf()
 
 # State vs. Ad Spend
 
