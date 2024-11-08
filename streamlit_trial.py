@@ -33,29 +33,29 @@ st.markdown('<h1 style="font-size: 30px; color: #FF6347;">A Study of Turnout and
 
 # ADVERTISER'S DATASET
 advtdf = pd.read_csv('https://raw.githubusercontent.com/Parnika798/psychic-palm-tree/main/advertisers.csv')
-st.write("Advertiser's Dataset", advtdf)
+#st.write("Advertiser's Dataset", advtdf)
 
 # Replacing ≤100 with 100 to prevent underestimation.
 advtdf['Amount spent (INR)'] = advtdf['Amount spent (INR)'].replace('≤100', 100)
-st.write("Updated Advertiser's Dataset", advtdf)
+#st.write("Updated Advertiser's Dataset", advtdf)
 
 advtdf_isnull = advtdf.isnull().sum()
-st.write("Missing Values in Advertiser's Dataset", advtdf_isnull)
+#st.write("Missing Values in Advertiser's Dataset", advtdf_isnull)
 
 # LOCATION'S DATASET
 locdf = pd.read_csv('https://raw.githubusercontent.com/Parnika798/psychic-palm-tree/main/locations.csv')
-st.write("Location's Dataset", locdf)
+#st.write("Location's Dataset", locdf)
 
 locdf_isnull = locdf.isnull().sum()
-st.write("Missing Values in Location's Dataset", locdf_isnull)
+#st.write("Missing Values in Location's Dataset", locdf_isnull)
 
 # RESULTS DATASET
 resultsdf = pd.read_csv('https://raw.githubusercontent.com/Parnika798/psychic-palm-tree/main/results.csv')
-st.write("Results Dataset", resultsdf)
+#st.write("Results Dataset", resultsdf)
 
 # Cleaning the Results dataset: Replace NaN values in 'Phase' column
 resultsdf['Phase'].fillna(7.0, inplace=True)
-st.write("Updated Results Dataset", resultsdf)
+#st.write("Updated Results Dataset", resultsdf)
 
 # Drop NaN values in 'State' column
 resultsdf.dropna(subset=['State'], inplace=True)
@@ -63,14 +63,14 @@ resultsdf.dropna(subset=['State'], inplace=True)
 # Find the state with the lowest number of electors
 lowestelectors_index = resultsdf['Total Electors'].idxmin()
 state_lowestelectors = resultsdf.loc[lowestelectors_index, 'State']
-st.write("State with the Lowest Electors", state_lowestelectors)
+#st.write("State with the Lowest Electors", state_lowestelectors)
 
 # MERGING THE DATASETS FOR ANALYSIS
 locdf['Location name'] = locdf['Location name'].str.strip().str.lower()
 resultsdf['State'] = resultsdf['State'].str.strip().str.lower()
 merged = pd.merge(locdf, resultsdf, left_on='Location name', right_on='State', how='inner')
 
-st.write("Merged Dataset", merged)
+#st.write("Merged Dataset", merged)
 
 # DATA VISUALISATION AND ANALYSIS
 
