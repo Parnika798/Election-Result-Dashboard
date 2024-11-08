@@ -102,6 +102,8 @@ with col2:
 # Ensure 'Amount spent (INR)' is numeric, converting non-numeric values to NaN
 advtdf['Amount spent (INR)'] = pd.to_numeric(advtdf['Amount spent (INR)'], errors='coerce')
 
+
+st.write("\n\n")
 # Heading for the dropdown selection
 st.markdown("<h2 style='text-align: center; color: #4CAF50;'>Election 2024: Key Metrics Overview</h2>", unsafe_allow_html=True)
 
