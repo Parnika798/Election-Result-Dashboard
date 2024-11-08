@@ -100,6 +100,47 @@ with col2:
    st.pyplot(plt)
    plt.clf()
 
+import pandas as pd
+import matplotlib.pyplot as plt
+import streamlit as st
+
+# Assuming 'advtdf' is already defined and available
+
+# Step 1: Convert 'Amount spent (INR)' to numeric and drop NaN values
+advtdf['Amount spent (INR)'] = pd.to_numeric(advtdf['Amount spent (INR)'], errors='coerce')
+advtdf.dropna(subset=['Amount spent (INR)'], inplace=True)
+
+# Group by 'Page name' and sum the 'Amount spent (INR)'
+party_ad_spend = advtdf.groupby('Page name')['Amount spent (INR)'].sum().sort_values(ascending=False)
+
+# Get the top 10 contributors
+top_10_parties = party_ad_spend.head(10)
+
+# For better visibility, explode function is being used
+explode = [0.05] * len(top_10_parties)  # 0.05 separates each slice by 5% of the radius
+
+# Create the Pie Chart
+plt.figure(figsize=(10, 8))
+plt.pie(
+    top_10_parties,
+    labels=top_10_parties.index,
+    autopct='%1.1f%%',
+    startangle=140,
+    explode=explode,  # Applies the exploded effect to each slice
+    textprops={'fontsize': 8}
+)
+
+
+    
+plt.title('Top 10 Contributors by Amount Spent on Advertising', fontweight='bold', fontsize=18)
+
+# Ensure the pie is drawn as a circle
+plt.axis('equal')
+
+# Display the plot in Streamlit
+st.pyplot(plt)
+plt.clf()
+
 # State vs. Ad Spend
 
 
@@ -211,46 +252,7 @@ st.pyplot(fig)
 plt.clf()
 
 
-import pandas as pd
-import matplotlib.pyplot as plt
-import streamlit as st
 
-# Assuming 'advtdf' is already defined and available
-
-# Step 1: Convert 'Amount spent (INR)' to numeric and drop NaN values
-advtdf['Amount spent (INR)'] = pd.to_numeric(advtdf['Amount spent (INR)'], errors='coerce')
-advtdf.dropna(subset=['Amount spent (INR)'], inplace=True)
-
-# Group by 'Page name' and sum the 'Amount spent (INR)'
-party_ad_spend = advtdf.groupby('Page name')['Amount spent (INR)'].sum().sort_values(ascending=False)
-
-# Get the top 10 contributors
-top_10_parties = party_ad_spend.head(10)
-
-# For better visibility, explode function is being used
-explode = [0.05] * len(top_10_parties)  # 0.05 separates each slice by 5% of the radius
-
-# Create the Pie Chart
-plt.figure(figsize=(10, 8))
-plt.pie(
-    top_10_parties,
-    labels=top_10_parties.index,
-    autopct='%1.1f%%',
-    startangle=140,
-    explode=explode,  # Applies the exploded effect to each slice
-    textprops={'fontsize': 8}
-)
-
-
-    
-plt.title('Top 10 Contributors by Amount Spent on Advertising', fontweight='bold', fontsize=18)
-
-# Ensure the pie is drawn as a circle
-plt.axis('equal')
-
-# Display the plot in Streamlit
-st.pyplot(plt)
-plt.clf()
 
 import pandas as pd
 import seaborn as sns
