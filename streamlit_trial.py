@@ -71,7 +71,7 @@ resultsdf['State'] = resultsdf['State'].str.strip().str.lower()
 merged = pd.merge(locdf, resultsdf, left_on='Location name', right_on='State', how='inner')
 
 #st.write("Merged Dataset", merged)
-
+st.wirte("\n\n")
 # DATA VISUALISATION AND ANALYSIS
 # Create columns with different widths (e.g., first column takes 2/4 width, second takes 1/4, third takes 1/4)
 col1, col2 = st.columns([10, 10])  # Adjust the widths as needed
