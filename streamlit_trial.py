@@ -215,42 +215,42 @@ with col4:
    st.pyplot(plt)
    plt.clf()
 
-col5, col6= st.columns([6,6])
+
 import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Assuming 'merged' is already defined and available
-with col5:
+
     
-   # Create the figure and axis
-   fig, ax1 = plt.subplots(figsize=(14, 8))
-   plt.grid(True, zorder=1)
+# Create the figure and axis
+fig, ax1 = plt.subplots(figsize=(14, 8))
+plt.grid(True, zorder=1)
 
-   # First plot: Total Electors by State (primary y-axis)
-   sns.barplot(x='State', y='Total Electors', data=merged, ax=ax1, color='lightblue', zorder=2)
-   ax1.set_xlabel('State', fontsize=14, fontweight='bold')
-   ax1.set_ylabel('Total Electors', fontsize=14, fontweight='bold', color='blue')
-   ax1.tick_params(axis='y', labelcolor='blue')
+# First plot: Total Electors by State (primary y-axis)
+sns.barplot(x='State', y='Total Electors', data=merged, ax=ax1, color='lightblue', zorder=2)
+ax1.set_xlabel('State', fontsize=14, fontweight='bold')
+ax1.set_ylabel('Total Electors', fontsize=14, fontweight='bold', color='blue')
+ax1.tick_params(axis='y', labelcolor='blue')
 
-   # Rotate x-axis labels
-   ax1.set_xticklabels(ax1.get_xticklabels(), rotation=90, ha='center')
+# Rotate x-axis labels
+ax1.set_xticklabels(ax1.get_xticklabels(), rotation=90, ha='center')
 
-   # Second plot: Polled (%) by State (secondary y-axis)
-   ax2 = ax1.twinx()
-   sns.lineplot(x='State', y='Polled (%)', data=merged, ax=ax2, color='darkgreen', marker='o')
-   ax2.set_ylabel('Polled (%)', fontsize=14, fontweight='bold', color='darkgreen')
-   ax2.tick_params(axis='y', labelcolor='darkgreen')
+# Second plot: Polled (%) by State (secondary y-axis)
+ax2 = ax1.twinx()
+sns.lineplot(x='State', y='Polled (%)', data=merged, ax=ax2, color='darkgreen', marker='o')
+ax2.set_ylabel('Polled (%)', fontsize=14, fontweight='bold', color='darkgreen')
+ax2.tick_params(axis='y', labelcolor='darkgreen')
 
-   # Title
-   plt.title('Total Electors and Polled (%) by State', fontsize=25, fontweight='bold')
+# Title
+plt.title('Total Electors and Polled (%) by State', fontsize=25, fontweight='bold')
 
-   # Adjust layout
-   plt.tight_layout()
+# Adjust layout
+plt.tight_layout()
 
-   # Display the plot in Streamlit
-   st.pyplot(fig)
-   plt.clf()
+# Display the plot in Streamlit
+st.pyplot(fig)
+plt.clf()
 
 
 
@@ -261,24 +261,23 @@ import matplotlib.pyplot as plt
 import streamlit as st
 
 # Assuming `merged` is already defined and available in your Streamlit app
-with col6:
-    
-   # Calculate Voter Turnout percentage
-   merged['Voter Turnout (%)'] = (merged['Total Votes'] / merged['Total Electors']) * 100
 
-   # Selecting relevant columns for correlation analysis
-   correlation_data = merged[['Amount spent (INR)', 'Total Electors', 'Total Votes', 'Polled (%)', 'Voter Turnout (%)']]
+# Calculate Voter Turnout percentage
+merged['Voter Turnout (%)'] = (merged['Total Votes'] / merged['Total Electors']) * 100
 
-   # Calculating the correlation matrix
-   correlation_matrix = correlation_data.corr()
+# Selecting relevant columns for correlation analysis
+correlation_data = merged[['Amount spent (INR)', 'Total Electors', 'Total Votes', 'Polled (%)', 'Voter Turnout (%)']]
 
-   # Create a heatmap to visualize correlations
-   plt.figure(figsize=(10, 8))
-   sns.heatmap(correlation_matrix, annot=True, fmt=".2f", cmap='coolwarm', square=True, cbar=True)
+# Calculating the correlation matrix
+correlation_matrix = correlation_data.corr()
 
-   # Adding title
-   plt.title('Correlation Heatmap of Voter Turnout and Ad Spend Metrics')
+# Create a heatmap to visualize correlations
+plt.figure(figsize=(10, 8))
+sns.heatmap(correlation_matrix, annot=True, fmt=".2f", cmap='coolwarm', square=True, cbar=True)
 
-   # Display the plot in Streamlit
-   st.pyplot(plt)
-   plt.clf()
+# Adding title
+plt.title('Correlation Heatmap of Voter Turnout and Ad Spend Metrics')
+
+# Display the plot in Streamlit
+st.pyplot(plt)
+plt.clf()
