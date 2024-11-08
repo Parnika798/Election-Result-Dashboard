@@ -99,22 +99,6 @@ with col2:
     st.pyplot(plt)
     plt.clf()
 
-    # Adding a button to show the summary for the graph
-    if st.button('Click to view summary for Ad Spend vs Voter Turnout'):
-        st.write("""
-        **Summary:**
-        
-        - **Wide Distribution**: There is a wide distribution of voter turnout percentages, with values ranging from 40% to 90% across varying levels of ad spend. While some data points indicate higher turnout percentages with increased ad spending, the overall correlation appears weak, suggesting that ad expenditure does not consistently lead to higher voter participation.
-        
-        - **Weak Correlation**: The scatter plot highlights a weak correlation between ad spending and voter turnout, suggesting that increased advertising does not guarantee higher participation.
-        
-        - **Diverse Turnout Levels**: Voter turnout percentages show significant variation, indicating that many factors influence engagement beyond just ad spend.
-        
-        - **Potential Influencers**: Constituencies with low ad spend but high turnout may be influenced by other variables such as local issues, candidate appeal, or grassroots campaigning efforts.
-        
-        - **Strategic Adjustments**: Political parties may need to reassess their reliance on advertising as a primary tool for boosting voter turnout, exploring alternative strategies for engaging voters.
-        """)
-
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -301,3 +285,81 @@ plt.title('Correlation Heatmap of Voter Turnout and Ad Spend Metrics', fontsize=
 # Display the plot in Streamlit
 st.pyplot(plt)
 plt.clf()
+
+
+#Interactive Summaries Using a Dropdown or Selectbox
+summary_choice = st.selectbox('Select a graph to view its summary:', ['Ad Spend vs Total Votes', 'State vs Ad Spend', 'Ad Spend vs Voter Turnout', 'State vs Voter Turnout','Phase-wise Ad Spend', 'Phase wise Polled (%)', 'Total Electors and Polled(%) by State', 'Correlation Heatmap of voter turnout and Ad Metrics','Top 10 Contributors by Amount Spent on Advertising'])
+
+if summary_choice == 'Ad Spend vs Total Votes':
+    st.write("""
+    **Summary:**
+    The scatter plot between Ad Spend and Total Votes shows a positive correlation, 
+    suggesting that higher ad spends tend to increase the number of votes. However, external factors 
+    may also influence voter behavior.
+    """)
+elif summary_choice == 'State vs Ad Spend':
+    st.write("""
+    **Summary: State vs Ad Spend**
+
+    - **Odisha**: Highest ad spend at **over 1.75 crore INR**, highlighting it as a key battleground.
+    - **Maharashtra** and **Andhra Pradesh**: Significant spending around **1 crore INR** each.
+    - Minimal ad spend in **Lakshadweep, Mizoram, Nagaland, Manipur,** and **Meghalaya** due to smaller electorates or secure political bases.
+    - **Bihar** and **Uttar Pradesh**: Moderate spending, suggesting reliance on alternative campaign strategies.
+
+    **Key Insights**  
+    - **Diverse Strategies**: Higher ad spends are targeted in competitive regions.
+    - **Selective Investment**: Lower spending in states with stable political landscapes or smaller electorates.
+    """)
+
+
+elif summary_choice == 'Ad Spend vs Voter Turnout':
+    st.write("""
+    **Summary:**
+    The bar chart shows the distribution of ad spend across different states. State2 has the highest ad spend, 
+    likely reflecting greater political competition in that state.
+    """)
+elif summary_choice == 'State vs Voter Turnout':
+    st.write("""
+    **Summary:**
+    The bar chart shows the distribution of ad spend across different states. State2 has the highest ad spend, 
+    likely reflecting greater political competition in that state.
+    """)
+elif summary_choice == 'Phase-wise Ad Spend':
+    st.write("""
+    **Summary:**
+    The bar chart shows the distribution of ad spend across different states. State2 has the highest ad spend, 
+    likely reflecting greater political competition in that state.
+    """)
+elif summary_choice == 'Phase wise Polled (%)':
+    st.write("""
+    **Summary:**
+    The bar chart shows the distribution of ad spend across different states. State2 has the highest ad spend, 
+    likely reflecting greater political competition in that state.
+    """)
+elif summary_choice == 'Total Electors and Polled(%) by State':
+    st.write("""
+    **Summary:**
+    The bar chart shows the distribution of ad spend across different states. State2 has the highest ad spend, 
+    likely reflecting greater political competition in that state.
+    """)
+elif summary_choice == 'Correlation Heatmap of voter turnout and Ad Metrics':
+    st.write("""
+    **Summary: Correlation Analysis**
+
+    - **Ad Spend vs Voter Turnout**: Weak correlation, indicating that **ad spending does not directly drive voter participation**.
+    - **Total Electors vs Total Votes**: Positive correlation of **0.68**, showing a strong link between registered voters and votes cast.
+    - **Total Electors vs Polled (%) and Voter Turnout (%)**: Negative correlation, suggesting **lower voter engagement in larger electorates**.
+
+    **Key Insights**  
+    - **Ad Spend Ineffectiveness**: Increased advertising does not guarantee higher turnout.
+    - **Engagement Challenges**: Larger electorates show lower engagement, indicating the need for tailored mobilization strategies.
+    - **Strategic Focus**: Political parties may benefit from re-evaluating ad strategies, focusing on factors that better drive voter turnout.
+     """)
+
+
+else 
+    st.write("""
+    **Summary:**
+    The bar chart shows the distribution of ad spend across different states. State2 has the highest ad spend, 
+    likely reflecting greater political competition in that state.
+    """)
