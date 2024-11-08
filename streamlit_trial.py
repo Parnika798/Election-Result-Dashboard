@@ -27,8 +27,9 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 
-st.title("Electoral Insights:", anchor=None)
-st.markdown('<h1 style="font-size: 30px; color: lightseagreen;">A Study of Turnout and Advertising Strategies</h1>', unsafe_allow_html=True)
+st.markdown("<h1 style='color: #E34234;'>Electoral Insights</h1>", unsafe_allow_html=True)
+
+st.markdown('<h1 style="font-size: 30px; color: ;">A Study of Turnout and Advertising Strategies</h1>', unsafe_allow_html=True)
 
 
 # ADVERTISER'S DATASET
