@@ -105,7 +105,7 @@ advtdf['Amount spent (INR)'] = pd.to_numeric(advtdf['Amount spent (INR)'], error
 
 st.write("\n\n")
 # Heading for the dropdown selection
-st.markdown("<h2 style='text-align: center; color: #4CAF50;'>Election 2024: Key Metrics Overview</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: left; color: #4CAF50;'>Election 2024: Key Metrics Overview</h2>", unsafe_allow_html=True)
 
 # Dropdown to select what to view
 option = st.selectbox(
