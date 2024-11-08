@@ -148,12 +148,8 @@ with col8:
    total_amount_spent = advtdf['Amount spent (INR)'].sum()
 
 # Displaying the KPI with a clear and large font
-   st.markdown("""
-    <div style="border: 5px solid black; padding: 20px; border-radius: 10px; text-align: center; background-color: #333;">
-        <h3 style="color: white;">Total Amount Spent on Advertising (INR)</h3>
-        <h1 style="color: #E34234;">₹{total_amount_spent:,.0f}</h1>
-    </div>
-    """, unsafe_allow_html=True)
+   st.markdown("<h3 style='text-align: center; color: Blue;'>Total Amount Spent on Advertising (INR)</h3>", unsafe_allow_html=True)
+   st.markdown(f"<h1 style='text-align: center; color: #4CAF50;'>₹{total_amount_spent:,.0f}</h1>", unsafe_allow_html=True)
 
 
 col5, col6= st.columns([6,6])
