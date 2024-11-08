@@ -39,14 +39,14 @@ advtdf_isnull = advtdf.isnull().sum()
 st.write("Missing Values in Advertiser's Dataset", advtdf_isnull)
 
 # LOCATION'S DATASET
-locdf = pd.read_csv('/content/locations.csv')
+locdf = pd.read_csv('https://github.com/Parnika798/psychic-palm-tree/blob/main/locations.csv')
 st.write("Location's Dataset", locdf)
 
 locdf_isnull = locdf.isnull().sum()
 st.write("Missing Values in Location's Dataset", locdf_isnull)
 
 # RESULTS DATASET
-resultsdf = pd.read_csv('/content/results.csv')
+resultsdf = pd.read_csv('https://github.com/Parnika798/psychic-palm-tree/blob/main/results.csv')
 st.write("Results Dataset", resultsdf)
 
 # Cleaning the Results dataset: Replace NaN values in 'Phase' column
