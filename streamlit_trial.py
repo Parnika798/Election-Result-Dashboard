@@ -99,7 +99,7 @@ with col2:
     st.pyplot(plt)
     plt.clf()
 
-col7, col8 = st.columns([10, 2])  # Adjust the widths as needed
+col7, col8 = st.columns([10, 4])  # Adjust the widths as needed
 import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
