@@ -292,13 +292,16 @@ summary_choice = st.selectbox('Select a graph to view its summary:', ['Ad Spend 
 
 if summary_choice == 'Ad Spend vs Total Votes':
     st.write("""
-    **Ad Spend vs. Total Votes**
+    **Summary for Ad Spend vs. Total Votes:**
 
-    - **Positive Correlation**: Higher ad spending generally corresponds with a rise in total votes, though some high votes occur at lower ad spends.
-    - **Clustered Spending**: Most data points cluster under **1 crore INR**, with total votes between **5 to 15 lakh**.
-    - **Outliers**: A few constituencies exhibit high votes with minimal ad spending, possibly due to factors beyond advertising.
+    - **Weak Correlation**: The scatter plot shows a weak relationship between ad spending and total votes, indicating that higher advertising budgets do not consistently lead to increased votes.
+    - **Concentration of Votes**: Most constituencies have ad spending below 1 crore INR, with total votes generally around 1-1.5 million, regardless of spend level.
+    - **High-Spend Outlier**: There is an outlier at around 1.75 crore INR in ad spend, but it does not correlate with a significant increase in votes, further emphasizing the limited impact of ad spending on vote counts.
 
+    
     """)
+
+
 
 
 elif summary_choice == 'State vs Ad Spend':
