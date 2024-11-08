@@ -102,7 +102,7 @@ with col2:
    plt.clf()
     # Adding a button to show the summary for the graph
     if st.button('Click to view summary for Ad Spend vs Total Votes'):
-    st.write("There is a wide distribution of voter turnout percentages, with values ranging from 40% to 90% across varying levels of ad spend.
+            st.write("There is a wide distribution of voter turnout percentages, with values ranging from 40% to 90% across varying levels of ad spend.
 While some data points indicate higher turnout percentages with increased ad spending, the overall correlation appears weak, suggesting that ad expenditure does not consistently lead to higher voter participation.
 The cluster of points around the 60-80% turnout range indicates that many constituencies achieve similar turnout levels despite differing advertising budgets.
 Key Insights
@@ -112,6 +112,7 @@ Potential Influencers: Constituencies with low ad spend but high turnout may be 
 Strategic Adjustments: Political parties may need to reassess their reliance on advertising as a primary tool for boosting voter turnout, exploring alternative strategies for engaging voters.
 
 ")
+
 
 import pandas as pd
 import matplotlib.pyplot as plt
