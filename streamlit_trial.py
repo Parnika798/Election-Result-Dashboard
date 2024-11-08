@@ -141,33 +141,37 @@ plt.axis('equal')
 st.pyplot(plt)
 plt.clf()
 
+
+col5, col6= st.columns([6,6])
 # State vs. Ad Spend
 
-
-plt.figure(figsize=(12, 8))
-plt.grid(True, zorder=1)
-sns.barplot(x='State', y='Amount spent (INR)', data=merged, palette=['#E34234', '#2E8B57'], zorder=2)
-plt.xlabel('States', fontsize=14, fontweight='bold')
-plt.ylabel('Total amount spent on advertising in INR', fontsize=14, fontweight='bold')
-plt.title('State vs. Ad Spend', fontsize=25, fontweight='bold')
-plt.xticks(rotation=90, ha='center', fontsize=12)
-plt.tight_layout()
-st.pyplot(plt)
-plt.clf()
+with col5:
+    
+   plt.figure(figsize=(12, 8))
+   plt.grid(True, zorder=1)
+   sns.barplot(x='State', y='Amount spent (INR)', data=merged, palette=['#E34234', '#2E8B57'], zorder=2)
+   plt.xlabel('States', fontsize=14, fontweight='bold')
+   plt.ylabel('Total amount spent on advertising in INR', fontsize=14, fontweight='bold')
+   plt.title('State vs. Ad Spend', fontsize=25, fontweight='bold')
+   plt.xticks(rotation=90, ha='center', fontsize=12)
+   plt.tight_layout()
+   st.pyplot(plt)
+   plt.clf()
 
 # State vs. Voter Turnout
-
-plt.figure(figsize=(12, 8))
-plt.grid(True, zorder=1)
-sorted_data = merged.sort_values(by='Polled (%)', ascending=False)
-sns.barplot(x='State', y='Polled (%)', data=sorted_data, palette='viridis', zorder=2)
-plt.xlabel('States', fontsize=14, fontweight='bold')
-plt.ylabel('Percentage of votes polled', fontsize=14, fontweight='bold')
-plt.title('State vs. Voter Turnout', fontsize=25, fontweight='bold')
-plt.xticks(rotation=90, ha='center', fontsize=12)
-plt.tight_layout()
-st.pyplot(plt)
-plt.clf()
+with col6:
+    
+   plt.figure(figsize=(12, 8))
+   plt.grid(True, zorder=1)
+   sorted_data = merged.sort_values(by='Polled (%)', ascending=False)
+   sns.barplot(x='State', y='Polled (%)', data=sorted_data, palette='viridis', zorder=2)
+   plt.xlabel('States', fontsize=14, fontweight='bold')
+   plt.ylabel('Percentage of votes polled', fontsize=14, fontweight='bold')
+   plt.title('State vs. Voter Turnout', fontsize=25, fontweight='bold')
+   plt.xticks(rotation=90, ha='center', fontsize=12)
+   plt.tight_layout()
+   st.pyplot(plt)
+   plt.clf()
 
 
 col3, col4= st.columns([6,6])
@@ -276,7 +280,7 @@ plt.figure(figsize=(10, 8))
 sns.heatmap(correlation_matrix, annot=True, fmt=".2f", cmap='coolwarm', square=True, cbar=True)
 
 # Adding title
-plt.title('Correlation Heatmap of Voter Turnout and Ad Spend Metrics')
+plt.title('Correlation Heatmap of Voter Turnout and Ad Spend Metrics',fontsize=25,fontwieght= 'bold')
 
 # Display the plot in Streamlit
 st.pyplot(plt)
