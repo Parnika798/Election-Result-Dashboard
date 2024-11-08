@@ -338,10 +338,18 @@ elif summary_choice == 'Phase wise Polled (%)':
     """)
 elif summary_choice == 'Total Electors and Polled(%) by State':
     st.write("""
-    **Summary:**
-    The bar chart shows the distribution of ad spend across different states. State2 has the highest ad spend, 
-    likely reflecting greater political competition in that state.
+    **Summary: Elector Counts and Voter Turnout**
+
+    - **High Elector Counts in Rajasthan and Haryana**: Both states exceed **2 million electors**, with **turnout rates between 60% and 70%**.
+    - **High Turnout in Smaller Electorates**: Smaller states like **Arunachal Pradesh, Lakshadweep, and Sikkim** exceed **75% voter turnout**.
+
+    **Key Insights**  
+    - **Elector Count vs. Turnout**: Larger elector counts do not guarantee higher voter turnout, as seen in states with moderate engagement like Rajasthan and Haryana.
+    - **High Turnout in Small States**: Smaller states, such as Nagaland and Manipur, achieve high turnout, suggesting **effective voter mobilization strategies**.
+    - **Regional Disparities**: Turnout varies significantly by region, highlighting that **local factors impact voter engagement** beyond population size.
     """)
+
+
 elif summary_choice == 'Correlation Heatmap of voter turnout and Ad Metrics':
     st.write("""
     **Summary: Correlation Analysis**
