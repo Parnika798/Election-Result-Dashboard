@@ -128,18 +128,21 @@ plt.tight_layout()
 st.pyplot(plt)
 plt.clf()
 
-# Phase-wise Ad Spend
 
-plt.figure(figsize=(12, 8))
-plt.grid(True, zorder=1)
-sns.barplot(x='Phase', y='Amount spent (INR)', data=merged, palette='Reds', zorder=2)
-plt.xlabel('Phase', fontsize=14, fontweight='bold')
-plt.ylabel('Total amount spent on advertising in INR', fontsize=14, fontweight='bold')
-plt.title('Phase-wise Ad Spend', fontsize=30, fontweight='bold')
-plt.xticks(rotation=90, ha='center', fontsize=12)
-plt.tight_layout()
-st.pyplot(plt)
-plt.clf()
+col3, col4= st.columns([6,6])
+# Phase-wise Ad Spend
+with col3:
+    
+    plt.figure(figsize=(12, 8))
+    plt.grid(True, zorder=1)
+    sns.barplot(x='Phase', y='Amount spent (INR)', data=merged, palette='Reds', zorder=2)
+    plt.xlabel('Phase', fontsize=14, fontweight='bold')
+    plt.ylabel('Total amount spent on advertising in INR', fontsize=14, fontweight='bold')
+    plt.title('Phase-wise Ad Spend', fontsize=30, fontweight='bold')
+    plt.xticks(rotation=90, ha='center', fontsize=12)
+    plt.tight_layout()
+    st.pyplot(plt)
+    plt.clf()
 
 
 
@@ -148,28 +151,28 @@ import matplotlib.pyplot as plt
 import streamlit as st
 
 # Assuming 'merged' is already defined and available
+with col4:
+   # Create the plot
+   plt.figure(figsize=(12, 8))  # Adjust width and height as needed
+   plt.grid(True, zorder=1)
 
-# Create the plot
-plt.figure(figsize=(12, 8))  # Adjust width and height as needed
-plt.grid(True, zorder=1)
+   # Bar plot
+   sns.barplot(x='Phase', y='Polled (%)', data=merged, palette='Reds', zorder=2)
 
-# Bar plot
-sns.barplot(x='Phase', y='Polled (%)', data=merged, palette='Reds', zorder=2)
+   # Labels and title
+   plt.xlabel('Phase', fontsize=14, fontweight='bold')
+   plt.ylabel('% of Polled Votes', fontsize=14, fontweight='bold')
+   plt.title('Phase wise Polled (%)', fontsize=30, fontweight='bold')
 
-# Labels and title
-plt.xlabel('Phase', fontsize=14, fontweight='bold')
-plt.ylabel('% of Polled Votes', fontsize=14, fontweight='bold')
-plt.title('Phase wise Polled (%)', fontsize=30, fontweight='bold')
+   # Rotate x-axis labels for better readability
+   plt.xticks(rotation=90, ha='center', fontsize=12)
 
-# Rotate x-axis labels for better readability
-plt.xticks(rotation=90, ha='center', fontsize=12)
+   # Adjust layout for better spacing
+   plt.tight_layout()
 
-# Adjust layout for better spacing
-plt.tight_layout()
-
-# Display the plot in Streamlit
-st.pyplot(plt)
-plt.clf()
+   # Display the plot in Streamlit
+   st.pyplot(plt)
+   plt.clf()
 
 
 import streamlit as st
