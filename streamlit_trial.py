@@ -39,7 +39,7 @@ advtdf_isnull = advtdf.isnull().sum()
 st.write("Missing Values in Advertiser's Dataset", advtdf_isnull)
 
 # LOCATION'S DATASET
-locdf = pd.read_csv('hhttps://raw.githubusercontent.com/Parnika798/psychic-palm-tree/main/locations.csv')
+locdf = pd.read_csv('https://raw.githubusercontent.com/Parnika798/psychic-palm-tree/main/locations.csv')
 st.write("Location's Dataset", locdf)
 
 locdf_isnull = locdf.isnull().sum()
