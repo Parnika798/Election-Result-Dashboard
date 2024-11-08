@@ -28,7 +28,7 @@ import matplotlib.pyplot as plt
 
 
 st.title("Electoral Insights:", anchor=None)
-st.markdown('<h1 style="font-size: 30px; color: #FF6347;">A Study of Turnout and Advertising Strategies</h1>', unsafe_allow_html=True)
+st.markdown('<h1 style="font-size: 30px; color: lightseagreen;">A Study of Turnout and Advertising Strategies</h1>', unsafe_allow_html=True)
 
 
 # ADVERTISER'S DATASET
