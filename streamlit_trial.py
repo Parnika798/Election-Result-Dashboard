@@ -95,7 +95,7 @@ plt.title('Ad Spend vs. Voter Turnout', fontsize=25, fontweight='bold')
 plt.xlabel('Total amount spent on advertising in INR')
 plt.ylabel('Percentage of votes polled')
 st.pyplot(plt)
-
+plt.clf()
 
 # State vs. Ad Spend
 
@@ -109,6 +109,7 @@ plt.title('State vs. Ad Spend', fontsize=25, fontweight='bold')
 plt.xticks(rotation=90, ha='center', fontsize=12)
 plt.tight_layout()
 st.pyplot(plt)
+plt.clf()
 
 # State vs. Voter Turnout
 st.subheader('State vs. Voter Turnout')
@@ -122,6 +123,7 @@ plt.title('State vs. Voter Turnout', fontsize=25, fontweight='bold')
 plt.xticks(rotation=90, ha='center', fontsize=12)
 plt.tight_layout()
 st.pyplot(plt)
+plt.clf()
 
 # Phase-wise Ad Spend
 st.subheader('Phase-wise Ad Spend')
@@ -134,6 +136,9 @@ plt.title('Phase-wise Ad Spend', fontsize=30, fontweight='bold')
 plt.xticks(rotation=90, ha='center', fontsize=12)
 plt.tight_layout()
 st.pyplot(plt)
+plt.clf()
+
+
 
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -161,6 +166,8 @@ plt.tight_layout()
 
 # Display the plot in Streamlit
 st.pyplot(plt)
+plt.clf()
+
 
 import streamlit as st
 import matplotlib.pyplot as plt
@@ -195,6 +202,8 @@ plt.tight_layout()
 
 # Display the plot in Streamlit
 st.pyplot(fig)
+plt.clf()
+
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -233,6 +242,7 @@ plt.axis('equal')
 
 # Display the plot in Streamlit
 st.pyplot(plt)
+plt.clf()
 
 import pandas as pd
 import seaborn as sns
@@ -259,3 +269,4 @@ plt.title('Correlation Heatmap of Voter Turnout and Ad Spend Metrics')
 
 # Display the plot in Streamlit
 st.pyplot(plt)
+plt.clf()
