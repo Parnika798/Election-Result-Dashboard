@@ -28,7 +28,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # ADVERTISER'S DATASET
-advtdf = pd.read_csv('/content/advertisers.csv')
+advtdf = pd.read_csv('https://github.com/Parnika798/psychic-palm-tree/blob/main/advertisers.csv')
 st.write("Advertiser's Dataset", advtdf)
 
 # Replacing ≤100 with 100 to prevent underestimation.
