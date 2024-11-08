@@ -246,8 +246,8 @@ with col2:
    plt.axis('equal')
 
 # Display the plot in Streamlit
-  st.pyplot(plt)
-  plt.clf()
+   st.pyplot(plt)
+   plt.clf()
 
 import pandas as pd
 import seaborn as sns
