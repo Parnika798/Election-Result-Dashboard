@@ -28,6 +28,9 @@ import matplotlib.pyplot as plt
 
 st.title("Electoral Insights")
 st.write("A study of Turnout and Advertising Strategies in India's Elections")
+st.title("Electoral Insights", anchor=None)
+st.markdown('<h1 style="font-size: 40px; color: #FF6347;">A Study of Turnout and Advertising Strategies</h1>', unsafe_allow_html=True)
+
 
 # ADVERTISER'S DATASET
 advtdf = pd.read_csv('https://raw.githubusercontent.com/Parnika798/psychic-palm-tree/main/advertisers.csv')
