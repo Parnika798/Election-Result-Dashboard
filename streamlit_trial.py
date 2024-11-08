@@ -147,7 +147,7 @@ with col7:
 with col8:
     # Assuming 'Amount spent (INR)' is the column for ad spend in INR
     total_amount_spent = advtdf['Amount spent (INR)'].sum()  # Use correct dataset column
-
+    st.markdown("<div style='border: 5px solid black; padding: 20px; border-radius: 10px; text-align: center;'>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center; color: black;'>Total Amount Spent on Advertising (INR)</h3>", unsafe_allow_html=True)
     st.markdown(f"<h1 style='text-align: center; color: rgba(255, 99, 71, 0.5);'>₹{total_amount_spent:,.0f}</h1>", unsafe_allow_html=True)
    
