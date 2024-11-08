@@ -280,7 +280,7 @@ plt.figure(figsize=(10, 8))
 sns.heatmap(correlation_matrix, annot=True, fmt=".2f", cmap='coolwarm', square=True, cbar=True)
 
 # Adding title
-plt.title('Correlation Heatmap of Voter Turnout and Ad Spend Metrics',fontsize=25,fontwieght= 'bold')
+plt.title('Correlation Heatmap of Voter Turnout and Ad Spend Metrics', fontsize=25, fontweight= 'bold')
 
 # Display the plot in Streamlit
 st.pyplot(plt)
