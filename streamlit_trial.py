@@ -74,7 +74,7 @@ merged = pd.merge(locdf, resultsdf, left_on='Location name', right_on='State', h
 
 # DATA VISUALISATION AND ANALYSIS
 # Create columns with different widths (e.g., first column takes 2/4 width, second takes 1/4, third takes 1/4)
-col1, col2 = st.columns([3, 3])  # Adjust the widths as needed
+col1, col2,col3 = st.columns([5, 5, 5])  # Adjust the widths as needed
 
 
 # Ad Spend vs. Total Votes
@@ -90,7 +90,7 @@ with col1:
 
 
 # Ad Spend vs. Voter Turnout
-with col2:
+with col3:
     
    st.subheader('Ad Spend vs. Voter Turnout')
    sns.scatterplot(x='Amount spent (INR)', y='Polled (%)', data=merged, color='blue')
@@ -238,14 +238,16 @@ plt.pie(
     textprops={'fontsize': 8}
 )
 
-plt.title('Top 10 Contributors by Amount Spent on Advertising', fontweight='bold', fontsize=18)
+with col2:
+    
+   plt.title('Top 10 Contributors by Amount Spent on Advertising', fontweight='bold', fontsize=18)
 
 # Ensure the pie is drawn as a circle
-plt.axis('equal')
+   plt.axis('equal')
 
 # Display the plot in Streamlit
-st.pyplot(plt)
-plt.clf()
+  st.pyplot(plt)
+  plt.clf()
 
 import pandas as pd
 import seaborn as sns
