@@ -288,15 +288,19 @@ plt.clf()
 
 
 #Interactive Summaries Using a Dropdown or Selectbox
-summary_choice = st.selectbox('Select a graph to view its summary:', ['Ad Spend vs Total Votes', 'State vs Ad Spend', 'Ad Spend vs Voter Turnout', 'State vs Voter Turnout','Phase-wise Ad Spend', 'Phase wise Polled (%)', 'Total Electors and Polled(%) by State', 'Correlation Heatmap of voter turnout and Ad Metrics','Top 10 Contributors by Amount Spent on Advertising'])
+summary_choice = st.selectbox('Select a graph to view its summary:', ['Ad Spend vs Total Votes', 'State vs Ad Spend', 'Ad Spend vs Voter Turnout', 'State vs Voter Turnout','Phase-wise Analysis', 'Total Electors and Polled(%) by State', 'Correlation Heatmap of voter turnout and Ad Metrics','Top 10 Contributors by Amount Spent on Advertising'])
 
 if summary_choice == 'Ad Spend vs Total Votes':
     st.write("""
-    **Summary:**
-    The scatter plot between Ad Spend and Total Votes shows a positive correlation, 
-    suggesting that higher ad spends tend to increase the number of votes. However, external factors 
-    may also influence voter behavior.
+    **Ad Spend vs. Total Votes**
+
+    - **Positive Correlation**: Higher ad spending generally corresponds with a rise in total votes, though some high votes occur at lower ad spends.
+    - **Clustered Spending**: Most data points cluster under **1 crore INR**, with total votes between **5 to 15 lakh**.
+    - **Outliers**: A few constituencies exhibit high votes with minimal ad spending, possibly due to factors beyond advertising.
+
     """)
+
+
 elif summary_choice == 'State vs Ad Spend':
     st.write("""
     **Summary: State vs Ad Spend**
@@ -314,28 +318,37 @@ elif summary_choice == 'State vs Ad Spend':
 
 elif summary_choice == 'Ad Spend vs Voter Turnout':
     st.write("""
-    **Summary:**
-    The bar chart shows the distribution of ad spend across different states. State2 has the highest ad spend, 
-    likely reflecting greater political competition in that state.
-    """)
+    **Voter Turnout Distribution**
+
+    - **Turnout Range**: Voter turnout spans **40% to 90%** across various ad spend levels.
+    - **Weak Correlation**: Increased ad spending does not consistently lead to higher turnout; most constituencies cluster between **60-80% turnout** despite different budgets.
+
+    **Key Insights**  
+    - **Ad Spend Limitations**: A weak correlation suggests that ad spending alone may not drive voter participation.
+    - **Influential Factors**: Constituencies with low ad spend but high turnout may be influenced by factors like local issues or grassroots efforts.
+   """)
+
+
 elif summary_choice == 'State vs Voter Turnout':
     st.write("""
     **Summary:**
     The bar chart shows the distribution of ad spend across different states. State2 has the highest ad spend, 
     likely reflecting greater political competition in that state.
     """)
-elif summary_choice == 'Phase-wise Ad Spend':
+elif summary_choice == 'Phase-wise Analysis':
     st.write("""
-    **Summary:**
-    The bar chart shows the distribution of ad spend across different states. State2 has the highest ad spend, 
-    likely reflecting greater political competition in that state.
+    **Polling Consistency Across Phases**
+
+    - **Consistent Voter Turnout**: Polled percentage remains steady across phases, despite variations in ad spend. 
+    - **Phase 4**: Highest polling at around **70%**.
+    - **Phases 3 and 5**: Slightly lower polling percentages, reflecting steady voter engagement.
+
+    **Key Insights**  
+    - **Ad Spend vs. Voter Turnout**: Increased ad spend in Phase 5 does not correspond with higher polling, suggesting that ad investment alone may not boost turnout.
+    - **Strategic Implications**: Parties may benefit from holistic strategies to drive engagement, particularly in phases with stable turnout levels.
     """)
-elif summary_choice == 'Phase wise Polled (%)':
-    st.write("""
-    **Summary:**
-    The bar chart shows the distribution of ad spend across different states. State2 has the highest ad spend, 
-    likely reflecting greater political competition in that state.
-    """)
+
+
 elif summary_choice == 'Total Electors and Polled(%) by State':
     st.write("""
     **Summary: Elector Counts and Voter Turnout**
@@ -367,7 +380,15 @@ elif summary_choice == 'Correlation Heatmap of voter turnout and Ad Metrics':
 
 else: 
     st.write("""
-    **Summary:**
-    The bar chart shows the distribution of ad spend across different states. State2 has the highest ad spend, 
-    likely reflecting greater political competition in that state.
+    **Ad Spending Breakdown**
+
+    - **BJP**: Leads with **42.3%** of ad spending, showing substantial investment.
+    - **Ama Chinha Sankha Chinha**: Follows at **24.5%**, with competitive spending.
+    - **Indian National Congress**: Invests **23.7%**, close to Ama Chinha Sankha Chinha.
+
+    **Key Insights**  
+    - **Dominance of BJP**: BJP’s ad spend is nearly **double** that of Ama Chinha Sankha Chinha, showing its dominance in ad investment.
+    - **Relative Spending Gaps**: Combined spending by Ama Chinha Sankha Chinha and Indian National Congress is still less than BJP’s total, underscoring BJP's strong commitment to advertising.
     """)
+
+
