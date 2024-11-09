@@ -26,13 +26,19 @@ import streamlit as st
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-st.markdown("""
+
+
+st.markdown(
+    """
     <style>
-    body {
+    /* Set background gradient for the main content area */
+    .stApp {
         background: linear-gradient(to right, #1E90FF, #87CEEB);
     }
     </style>
-""", unsafe_allow_html=True)
+    """,
+    unsafe_allow_html=True
+)
 
 
 
