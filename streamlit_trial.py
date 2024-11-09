@@ -26,6 +26,15 @@ import streamlit as st
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+st.markdown("""
+    <style>
+    body {
+        background-color: #f5f5f5; /* Light grey color */
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+
 
 st.markdown("<h1 style='color: #B51648;'>Electoral Insights:</h1>", unsafe_allow_html=True)
 
