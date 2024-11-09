@@ -27,10 +27,10 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # First Heading (Electoral Insights)
-st.markdown("<h2 style='text-align: left; color: #B57F90;'>Electoral Insights:</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: left; color: #B51648;'>Electoral Insights:</h2>", unsafe_allow_html=True)
 
 # Second Heading (A Study of Turnout and Advertising Strategies)
-st.markdown("<h2 style='text-align: left; color: #B57F90;'>A Study of Turnout and Advertising Strategies</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: left; color: lightseagreen;'>A Study of Turnout and Advertising Strategies</h2>", unsafe_allow_html=True)
 
 st.markdown("<h1 style='color: #B51648;'>Electoral Insights:</h1>", unsafe_allow_html=True)
 
