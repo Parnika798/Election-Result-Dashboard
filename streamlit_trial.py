@@ -32,10 +32,6 @@ st.markdown("<h2 style='text-align: left; color: #B51648;'>Electoral Insights:</
 # Second Heading (A Study of Turnout and Advertising Strategies)
 st.markdown("<h2 style='text-align: left; color: lightseagreen;'>A Study of Turnout and Advertising Strategies</h2>", unsafe_allow_html=True)
 
-st.markdown("<h1 style='font-size: 30px; color: #B51648;'>Electoral Insights:</h1>", unsafe_allow_html=True)
-
-st.markdown('<h1 style="font-size: 30px; color:lightseagreen ;">A Study of Turnout and Advertising Strategies</h1>', unsafe_allow_html=True)
-
 
 # ADVERTISER'S DATASET
 advtdf = pd.read_csv('https://raw.githubusercontent.com/Parnika798/psychic-palm-tree/main/advertisers.csv')
