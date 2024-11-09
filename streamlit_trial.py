@@ -27,21 +27,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 
-
-st.markdown(
-    """
-    <style>
-    /* Set background gradient for the main content area */
-    .stApp {
-        background: linear-gradient(to right, #1E90FF, #87CEEB);
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
-
-
 st.markdown("<h1 style='color: #B51648;'>Electoral Insights:</h1>", unsafe_allow_html=True)
 
 st.markdown('<h1 style="font-size: 30px; color:lightseagreen ;">A Study of Turnout and Advertising Strategies</h1>', unsafe_allow_html=True)
