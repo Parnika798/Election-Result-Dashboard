@@ -29,7 +29,7 @@ import matplotlib.pyplot as plt
 st.markdown("""
     <style>
     body {
-        background-color: #f5f5f5; /* Light grey color */
+        background: linear-gradient(to right, #1E90FF, #87CEEB);
     }
     </style>
 """, unsafe_allow_html=True)
