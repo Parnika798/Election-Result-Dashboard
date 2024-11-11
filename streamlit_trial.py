@@ -363,7 +363,10 @@ elif summary_choice == 'State vs Voter Turnout':
     st.write("""
     **Summary:**
     Lakshadweep has the highest voter turnout, slightly exceeding 80%, while Bihar and Uttrakhand stand at the lowest, around 50 -60%.
-    **Key Insights** - Turnout appears generally higher in northeastern and some southern states, suggesting that regional political dynamics, cultural factors, or campaign efforts may play a role in mobilizing voters in these areas.
+
+
+    **Key Insights** - Turnout appears generally higher in northeastern and some southern states, suggesting that regional political dynamics, 
+    cultural factors, or campaign efforts may play a role in mobilizing voters in these areas.
     """)
 elif summary_choice == 'Phase-wise Analysis':
     st.write("""
