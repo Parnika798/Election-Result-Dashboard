@@ -128,44 +128,6 @@ st.write("\n\n")
 
 
 
-import matplotlib.pyplot as plt
-import seaborn as sns
-from matplotlib.lines import Line2D
-
-fig, ax1 = plt.subplots(figsize=(14, 8))
-plt.grid(True, zorder=1)
-
-# First plot: Total Electors by State (primary y-axis)
-sns.barplot(x='State', y='Total Electors', data=merged, ax=ax1, color='lightblue', zorder=2)
-ax1.set_xlabel('State', fontsize=14, fontweight='bold')
-ax1.set_ylabel('Total Electors', fontsize=14, fontweight='bold', color='blue')
-ax1.tick_params(axis='y', labelcolor='blue')
-
-# Rotate x-axis labels
-ax1.set_xticklabels(ax1.get_xticklabels(), rotation=90, ha='center')
-
-# Second plot: Polled (%) by State (secondary y-axis)
-ax2 = ax1.twinx()
-sns.lineplot(x='State', y='Polled (%)', data=merged, ax=ax2, color='darkgreen', marker='o')
-ax2.set_ylabel('Polled (%)', fontsize=14, fontweight='bold', color='darkgreen')
-ax2.tick_params(axis='y', labelcolor='darkgreen')
-
-# Title
-plt.title('Total Electors and Polled (%) by State', fontsize=25, fontweight='bold')
-
-# Custom legend
-custom_lines = [
-    Line2D([0], [0], color='lightblue', lw=10, label='Total Electors'),
-    Line2D([0], [0], color='darkgreen', lw=2, marker='o', label='Polled (%)')
-]
-plt.legend(handles=custom_lines, loc='upper left')
-
-plt.tight_layout()
-
-
-# Display the plot in Streamlit
-st.pyplot(fig)
-plt.clf()
 
 col5, col6= st.columns([6,6])
 # State vs. Ad Spend
@@ -300,14 +262,10 @@ with col4:
    plt.clf()
 
 
-import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
+from matplotlib.lines import Line2D
 
-# Assuming 'merged' is already defined and available
-
-    
-# Create the figure and axis
 fig, ax1 = plt.subplots(figsize=(14, 8))
 plt.grid(True, zorder=1)
 
@@ -329,8 +287,20 @@ ax2.tick_params(axis='y', labelcolor='darkgreen')
 # Title
 plt.title('Total Electors and Polled (%) by State', fontsize=25, fontweight='bold')
 
-# Adjust layout
+# Custom legend
+custom_lines = [
+    Line2D([0], [0], color='lightblue', lw=10, label='Total Electors'),
+    Line2D([0], [0], color='darkgreen', lw=2, marker='o', label='Polled (%)')
+]
+plt.legend(handles=custom_lines, loc='upper left')
+
 plt.tight_layout()
+
+
+# Display the plot in Streamlit
+st.pyplot(fig)
+plt.clf()
+
 
 # Display the plot in Streamlit
 st.pyplot(fig)
