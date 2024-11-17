@@ -251,29 +251,50 @@ with col3:
 
 
 
-import seaborn as sns
-import matplotlib.pyplot as plt
-import streamlit as st
-
 # Assuming 'merged' is already defined and available
 with col4:
-   # Create the plot
+   import seaborn as sns
+   import matplotlib.pyplot as plt
+   import matplotlib.patches as mpatches
+
+   # Define the number of phases
+   num_phases = 7  # Assuming there are 7 phases
+
+   # Generate a Reds palette with shades from light to dark
+   palette = sns.color_palette('Reds', n_colors=num_phases)
+
+   # Sort phases in ascending order and map colors accordingly
+   merged_sorted = merged.sort_values('Phase')  # Ensure data is sorted by Phase if needed
    plt.figure(figsize=(12, 8))  # Adjust width and height as needed
    plt.grid(True, zorder=1)
 
-   # Bar plot
-   sns.barplot(x='Phase', y='Polled (%)', data=merged, palette='Reds', zorder=2)
+   # Create the bar plot with a custom palette
+   bar_plot = sns.barplot(x='Phase', y='Polled (%)', data=merged_sorted,
+                       palette=palette, zorder=2)
 
-   # Labels and title
+   # Adding x and y labels and title
    plt.xlabel('Phase', fontsize=14, fontweight='bold')
    plt.ylabel('% of Polled Votes', fontsize=14, fontweight='bold')
-   plt.title('Phase wise Polled (%)', fontsize=30, fontweight='bold')
+   plt.title('Phase-wise Polled (%)', fontsize=30, fontweight='bold')
 
    # Rotate x-axis labels for better readability
    plt.xticks(rotation=90, ha='center', fontsize=12)
 
-   # Adjust layout for better spacing
-   plt.tight_layout()
+   # Create custom legend with each phase and its color
+   legend_patches = [mpatches.Patch(color=palette[i], label=f'Phase {i+1}') for i in range(num_phases)]
+   legend = plt.legend(handles=legend_patches, title='Phase Legend', loc='upper right', fontsize=8, title_fontsize=10)
+
+   # Adjust legend box properties for a smaller size
+   legend.get_frame().set_linewidth(0.5)  # Thinner border
+   legend.get_frame().set_alpha(0.8)  # Slightly transparent
+   legend.handlelength = 1  # Shorter legend handles
+   legend.handletextpad = 0.2  # Less padding between handles and text
+   legend.labelspacing = 0.3  # Reduced space between labels
+   legend.borderpad = 0.3  # Less padding inside the legend box
+   legend.borderaxespad = 0.3  # Reduced padding between legend and plot
+
+
+   plt.tight_layout()  # Adjusts spacing to fit everything
 
    # Display the plot in Streamlit
    st.pyplot(plt)
