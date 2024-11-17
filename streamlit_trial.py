@@ -341,13 +341,6 @@ st.pyplot(fig)
 plt.clf()
 
 
-# Display the plot in Streamlit
-st.pyplot(fig)
-plt.clf()
-
-
-
-
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
