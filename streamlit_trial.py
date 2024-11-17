@@ -161,7 +161,7 @@ plt.tight_layout()
 
 
 # Display the plot in Streamlit
-st.pyplot(plt)
+st.pyplot(fig)
 plt.clf()
 
 
