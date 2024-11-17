@@ -125,6 +125,9 @@ elif option == 'Total Votes Polled in 2024 Elections':
     st.markdown(f"{total_votes_polled:,.0f}", unsafe_allow_html=True)
 
 st.write("\n\n")
+
+
+
 import matplotlib.pyplot as plt
 import seaborn as sns
 from matplotlib.lines import Line2D
@@ -163,8 +166,6 @@ plt.tight_layout()
 # Display the plot in Streamlit
 st.pyplot(fig)
 plt.clf()
-
-
 
 col5, col6= st.columns([6,6])
 # State vs. Ad Spend
