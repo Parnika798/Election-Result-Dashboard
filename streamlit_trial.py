@@ -126,7 +126,46 @@ elif option == 'Total Votes Polled in 2024 Elections':
 
 st.write("\n\n")
 
+import pandas as pd
+import matplotlib.pyplot as plt
 
+# Step 1: Convert 'Amount spent (INR)' to numeric and drop NaN values
+advtdf['Amount spent (INR)'] = pd.to_numeric(advtdf['Amount spent (INR)'], errors='coerce')
+advtdf.dropna(subset=['Amount spent (INR)'], inplace=True)
+
+# Group by 'Page name' and sum the 'Amount spent (INR)'
+party_ad_spend = advtdf.groupby('Page name')['Amount spent (INR)'].sum().sort_values(ascending=False)
+
+# Get the top 10 contributors
+top_10_parties = party_ad_spend.head(10)
+
+# For better visibility, use the explode function
+explode = [0.05] * len(top_10_parties)  # 0.05 separates each slice by 5% of the radius
+
+# Create the Pie Chart
+plt.figure(figsize=(10, 8))
+colors = plt.cm.tab10(range(len(top_10_parties)))  # Color map for 10 unique colors
+plt.pie(
+    top_10_parties,
+    labels=top_10_parties.index,
+    autopct='%1.1f%%',
+    startangle=140,
+    explode=explode,
+    colors=colors,  # Set the colors for each slice
+    textprops={'fontsize': 8}
+)
+
+plt.title('Top 10 Contributors by Amount Spent on Advertising', fontweight='bold', fontsize=18)
+
+# Add a legend to the side
+plt.legend(top_10_parties.index, title="Page Name", loc="center left", bbox_to_anchor=(1, 0, 0.5, 1), fontsize=10)
+
+# Ensure the pie is drawn as a circle
+plt.axis('equal')
+
+# Show the chart
+st.pyplot(plt)
+plt.clf()
 
 
 col5, col6= st.columns([6,6])
