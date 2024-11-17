@@ -125,42 +125,40 @@ elif option == 'Total Votes Polled in 2024 Elections':
     st.markdown(f"{total_votes_polled:,.0f}", unsafe_allow_html=True)
 
 st.write("\n\n")
-import pandas as pd
 import matplotlib.pyplot as plt
-import streamlit as st
+import seaborn as sns
+from matplotlib.lines import Line2D
 
-# Assuming 'advtdf' is already defined and available
+fig, ax1 = plt.subplots(figsize=(14, 8))
+plt.grid(True, zorder=1)
 
-# Step 1: Convert 'Amount spent (INR)' to numeric and drop NaN values
-advtdf['Amount spent (INR)'] = pd.to_numeric(advtdf['Amount spent (INR)'], errors='coerce')
-advtdf.dropna(subset=['Amount spent (INR)'], inplace=True)
+# First plot: Total Electors by State (primary y-axis)
+sns.barplot(x='State', y='Total Electors', data=merged, ax=ax1, color='lightblue', zorder=2)
+ax1.set_xlabel('State', fontsize=14, fontweight='bold')
+ax1.set_ylabel('Total Electors', fontsize=14, fontweight='bold', color='blue')
+ax1.tick_params(axis='y', labelcolor='blue')
 
-# Group by 'Page name' and sum the 'Amount spent (INR)'
-party_ad_spend = advtdf.groupby('Page name')['Amount spent (INR)'].sum().sort_values(ascending=False)
+# Rotate x-axis labels
+ax1.set_xticklabels(ax1.get_xticklabels(), rotation=90, ha='center')
 
-# Get the top 10 contributors
-top_10_parties = party_ad_spend.head(10)
+# Second plot: Polled (%) by State (secondary y-axis)
+ax2 = ax1.twinx()
+sns.lineplot(x='State', y='Polled (%)', data=merged, ax=ax2, color='darkgreen', marker='o')
+ax2.set_ylabel('Polled (%)', fontsize=14, fontweight='bold', color='darkgreen')
+ax2.tick_params(axis='y', labelcolor='darkgreen')
 
-# For better visibility, explode function is being used
-explode = [0.05] * len(top_10_parties)  # 0.05 separates each slice by 5% of the radius
+# Title
+plt.title('Total Electors and Polled (%) by State', fontsize=25, fontweight='bold')
 
-# Create the Pie Chart
-plt.figure(figsize=(10, 8))
-plt.pie(
-top_10_parties,
-labels=top_10_parties.index,
-autopct='%1.1f%%',
-startangle=140,
-explode=explode,  # Applies the exploded effect to each slice
-textprops={'fontsize': 8}
-)
+# Custom legend
+custom_lines = [
+    Line2D([0], [0], color='lightblue', lw=10, label='Total Electors'),
+    Line2D([0], [0], color='darkgreen', lw=2, marker='o', label='Polled (%)')
+]
+plt.legend(handles=custom_lines, loc='upper left')
 
+plt.tight_layout()
 
-    
-plt.title('Top 10 Contributors by Amount Spent on Advertising', fontweight='bold', fontsize=18)
-
-# Ensure the pie is drawn as a circle
-plt.axis('equal')
 
 # Display the plot in Streamlit
 st.pyplot(plt)
