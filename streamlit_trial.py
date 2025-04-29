@@ -89,15 +89,13 @@ with col1:
     st.pyplot(plt)
     plt.clf()
 
-    with st.expander("📄 View Summary"):
+    with st.expander("📄 View Summary for Ad Spend vs Total Votes"):
     st.markdown("""
     **Summary:**
-    - There is a clear positive trend between the total bill and the tip.
-    - Customers tend to tip more when they spend more.
-    - However, the relationship is not strictly linear.
+    - **Weak Correlation**: The scatter plot shows a weak relationship between ad spending and total votes.
+    - **Concentration of Votes**: Most constituencies spend < ₹1 crore but have similar vote counts (~1–1.5 million).
+    - **High-Spend Outlier**: One outlier with ₹1.75 crore does not yield extra votes.
     """)
-
-
 
 
 # Ad Spend vs. Voter Turnout
