@@ -90,12 +90,12 @@ with col1:
     plt.clf()
 
     with st.expander("📄 View Summary for Ad Spend vs Total Votes"):
-    st.markdown("""
-    **Summary:**
-    - **Weak Correlation**: The scatter plot shows a weak relationship between ad spending and total votes.
-    - **Concentration of Votes**: Most constituencies spend < ₹1 crore but have similar vote counts (~1–1.5 million).
-    - **High-Spend Outlier**: One outlier with ₹1.75 crore does not yield extra votes.
-    """)
+       st.markdown("""
+       **Summary:**
+       - **Weak Correlation**: The scatter plot shows a weak relationship between ad spending and total votes.
+       - **Concentration of Votes**: Most constituencies spend < ₹1 crore but have similar vote counts (~1–1.5 million).
+       - **High-Spend Outlier**: One outlier with ₹1.75 crore does not yield extra votes.
+       """)
 
 
 # Ad Spend vs. Voter Turnout
