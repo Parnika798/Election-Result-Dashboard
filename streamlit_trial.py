@@ -80,22 +80,22 @@ col1, col2 = st.columns([10, 10])  # Adjust the widths as needed
 
 
 # Ad Spend vs. Total Votes
+
 with col1:
-    
     sns.scatterplot(y='Total Votes', x='Amount spent (INR)', data=merged, color='orange')
     plt.ylabel('Total votes cast')
     plt.xlabel('Total amount spent on advertising in INR')
     plt.title('Ad Spend vs. Total Votes', fontsize=25, fontweight='bold')
     st.pyplot(plt)
-    plt.clf()
+    plt.clf()  # Clear the plot after rendering
 
     with st.expander("📄 View Summary for Ad Spend vs Total Votes"):
-       st.markdown("""
-       **Summary:**
-       - **Weak Correlation**: The scatter plot shows a weak relationship between ad spending and total votes.
-       - **Concentration of Votes**: Most constituencies spend < ₹1 crore but have similar vote counts (~1–1.5 million).
-       - **High-Spend Outlier**: One outlier with ₹1.75 crore does not yield extra votes.
-       """)
+        st.markdown("""
+        **Summary:**
+        - **Weak Correlation**: The scatter plot shows a weak relationship between ad spending and total votes.
+        - **Concentration of Votes**: Most constituencies spend < ₹1 crore but have similar vote counts (~1–1.5 million).
+        - **High-Spend Outlier**: One outlier with ₹1.75 crore does not yield extra votes.
+        """)
 
 
 # Ad Spend vs. Voter Turnout
