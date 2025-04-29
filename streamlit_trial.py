@@ -89,12 +89,13 @@ with col1:
     st.pyplot(plt)
     plt.clf()  # Clear the plot after rendering
 
-    with st.expander("📄 View Summary for Ad Spend vs Total Votes"):
+    with st.expander("📄View Summary"):
         st.markdown("""
         **Summary:**
-        - **Weak Correlation**: The scatter plot shows a weak relationship between ad spending and total votes.
-        - **Concentration of Votes**: Most constituencies spend < ₹1 crore but have similar vote counts (~1–1.5 million).
-        - **High-Spend Outlier**: One outlier with ₹1.75 crore does not yield extra votes.
+        - **Weak Correlation**: The scatter plot shows a weak relationship between ad spending and total votes, indicating that higher advertising budgets do not consistently lead to increased votes.
+        - **Concentration of Votes**: Most constituencies have ad spending below 1 crore INR, with total votes generally around 1-1.5 million, regardless of spend level.
+        - **High-Spend Outlier**: There is an outlier at around 1.75 crore INR in ad spend, but it does not correlate with a significant increase in votes, further emphasizing the limited impact of ad spending on vote counts.
+
         """)
 
 
@@ -106,6 +107,23 @@ with col2:
     plt.ylabel('Percentage of votes polled')
     st.pyplot(plt)
     plt.clf()
+
+
+    with st.expander("📄View Summary"):
+        st.markdown("""
+        
+         **Voter Turnout Distribution**
+
+        - **Turnout Range**: Voter turnout spans **40% to 90%** across various ad spend levels.
+        - **Weak Correlation**: Increased ad spending does not consistently lead to higher turnout; most constituencies cluster between **60-80% turnout** despite different budgets.
+
+        **Key Insights**  
+        - **Ad Spend Limitations**: A weak correlation suggests that ad spending alone may not drive voter participation.
+        - **Influential Factors**: Constituencies with low ad spend but high turnout may be influenced by factors like local issues or grassroots efforts.
+        """)
+
+
+
 
 # Ensure 'Amount spent (INR)' is numeric, converting non-numeric values to NaN
 advtdf['Amount spent (INR)'] = pd.to_numeric(advtdf['Amount spent (INR)'], errors='coerce')
@@ -173,6 +191,23 @@ plt.axis('equal')
 st.pyplot(plt)
 plt.clf()
 
+with st.expander("📄View Summary"):
+        st.markdown("""
+        
+    **Ad Spending Breakdown**
+
+    - **BJP**: Leads with **42.3%** of ad spending, showing substantial investment.
+    - **Ama Chinha Sankha Chinha**: Follows at **24.5%**, with competitive spending.
+    - **Indian National Congress**: Invests **23.7%**, close to Ama Chinha Sankha Chinha.
+
+    **Key Insights**  
+    - **Dominance of BJP**: BJP’s ad spend is nearly **double** that of Ama Chinha Sankha Chinha, showing its dominance in ad investment.
+    - **Relative Spending Gaps**: Combined spending by Ama Chinha Sankha Chinha and Indian National Congress is still less than BJP’s total, underscoring BJP's strong commitment to advertising.
+
+
+        """)
+
+
 
 col5, col6= st.columns([6,6])
 # State vs. Ad Spend
@@ -190,6 +225,21 @@ with col5:
    st.pyplot(plt)
    plt.clf()
 
+   with st.expander("📄View Summary"):
+        st.markdown("""
+        **Summary:**
+      
+        - **Odisha**: Highest ad spend at **over 1.75 crore INR**, highlighting it as a key battleground.
+        - **Maharashtra** and **Andhra Pradesh**: Significant spending around **1 crore INR** each.
+        - Minimal ad spend in **Lakshadweep, Mizoram, Nagaland, Manipur,** and **Meghalaya** due to smaller electorates or secure political bases.
+        - **Bihar** and **Uttar Pradesh**: Moderate spending, suggesting reliance on alternative campaign strategies.
+
+        **Key Insights**  
+        - **Diverse Strategies**: Higher ad spends are targeted in competitive regions.
+        - **Selective Investment**: Lower spending in states with stable political landscapes or smaller electorates.
+
+
+        """)
 # State vs. Voter Turnout
 with col6:
     
@@ -204,6 +254,19 @@ with col6:
    plt.tight_layout()
    st.pyplot(plt)
    plt.clf()
+
+
+   with st.expander("📄View Summary"):
+    st.markdown("""
+        
+    **Summary:**
+    Lakshadweep has the highest voter turnout, slightly exceeding 80%, while Bihar and Uttrakhand stand at the lowest, around 50 -60%.
+
+    **Key Insights** - Turnout appears generally higher in northeastern and some southern states, suggesting that regional political dynamics, 
+    cultural factors, or campaign efforts may play a role in mobilizing voters in these areas.
+
+    """)
+
 
 
 col3, col4= st.columns([6,6])
@@ -306,6 +369,22 @@ with col4:
    st.pyplot(plt)
    plt.clf()
 
+with st.expander("📄View Summary"):
+    st.markdown("""
+        
+   **Polling Consistency Across Phases**
+
+    - **Consistent Voter Turnout**: Polled percentage remains steady across phases, despite variations in ad spend. 
+    - **Phase 4**: Highest polling at around **70%**.
+    - **Phases 3 and 5**: Slightly lower polling percentages, reflecting steady voter engagement.
+
+    **Key Insights**  
+    - **Ad Spend vs. Voter Turnout**: Increased ad spend in Phase 5 does not correspond with higher polling, suggesting that ad investment alone may not boost turnout.
+    - **Strategic Implications**: Parties may benefit from holistic strategies to drive engagement, particularly in phases with stable turnout levels.
+
+    """)
+
+   
 
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -346,6 +425,23 @@ plt.tight_layout()
 st.pyplot(fig)
 plt.clf()
 
+with st.expander("📄View Summary"):
+    st.markdown("""
+        
+    **Elector Counts and Voter Turnout**
+
+    - **High Elector Counts in Rajasthan and Haryana**: Both states exceed **2 million electors**, with **turnout rates between 60% and 70%**.
+    - **High Turnout in Smaller Electorates**: Smaller states like **Arunachal Pradesh, Lakshadweep, and Sikkim** exceed **75% voter turnout**.
+
+    **Key Insights**  
+    - **Elector Count vs. Turnout**: Larger elector counts do not guarantee higher voter turnout, as seen in states with moderate engagement like Rajasthan and Haryana.
+    - **High Turnout in Small States**: Smaller states, such as Nagaland and Manipur, achieve high turnout, suggesting **effective voter mobilization strategies**.
+    - **Regional Disparities**: Turnout varies significantly by region, highlighting that **local factors impact voter engagement** beyond population size.
+
+    """)
+
+
+
 
 import pandas as pd
 import seaborn as sns
@@ -374,93 +470,10 @@ plt.title('Correlation Heatmap of Voter Turnout and Ad Spend Metrics', fontsize=
 st.pyplot(plt)
 plt.clf()
 
-# Heading for the dropdown selection
-st.markdown("<h2 style='text-align: right; color: teal;'>Key Insights</h2>", unsafe_allow_html=True)
-#Interactive Summaries Using a Dropdown or Selectbox
-summary_choice = st.selectbox('Select a graph to view its summary:', ['Ad Spend vs Total Votes', 'State vs Ad Spend', 'Ad Spend vs Voter Turnout', 'State vs Voter Turnout','Phase-wise Analysis', 'Total Electors and Polled(%) by State', 'Correlation Heatmap of voter turnout and Ad Metrics','Top 10 Contributors by Amount Spent on Advertising'])
-
-if summary_choice == 'Ad Spend vs Total Votes':
-    st.write("""
-    **Summary for Ad Spend vs. Total Votes:**
-
-    - **Weak Correlation**: The scatter plot shows a weak relationship between ad spending and total votes, indicating that higher advertising budgets do not consistently lead to increased votes.
-    - **Concentration of Votes**: Most constituencies have ad spending below 1 crore INR, with total votes generally around 1-1.5 million, regardless of spend level.
-    - **High-Spend Outlier**: There is an outlier at around 1.75 crore INR in ad spend, but it does not correlate with a significant increase in votes, further emphasizing the limited impact of ad spending on vote counts.
-
-    
-    """)
-
-
-
-
-elif summary_choice == 'State vs Ad Spend':
-    st.write("""
-    **Summary: State vs Ad Spend**
-
-    - **Odisha**: Highest ad spend at **over 1.75 crore INR**, highlighting it as a key battleground.
-    - **Maharashtra** and **Andhra Pradesh**: Significant spending around **1 crore INR** each.
-    - Minimal ad spend in **Lakshadweep, Mizoram, Nagaland, Manipur,** and **Meghalaya** due to smaller electorates or secure political bases.
-    - **Bihar** and **Uttar Pradesh**: Moderate spending, suggesting reliance on alternative campaign strategies.
-
-    **Key Insights**  
-    - **Diverse Strategies**: Higher ad spends are targeted in competitive regions.
-    - **Selective Investment**: Lower spending in states with stable political landscapes or smaller electorates.
-    """)
-
-
-elif summary_choice == 'Ad Spend vs Voter Turnout':
-    st.write("""
-    **Voter Turnout Distribution**
-
-    - **Turnout Range**: Voter turnout spans **40% to 90%** across various ad spend levels.
-    - **Weak Correlation**: Increased ad spending does not consistently lead to higher turnout; most constituencies cluster between **60-80% turnout** despite different budgets.
-
-    **Key Insights**  
-    - **Ad Spend Limitations**: A weak correlation suggests that ad spending alone may not drive voter participation.
-    - **Influential Factors**: Constituencies with low ad spend but high turnout may be influenced by factors like local issues or grassroots efforts.
-   """)
-
-
-elif summary_choice == 'State vs Voter Turnout':
-    st.write("""
-    **Summary:**
-    Lakshadweep has the highest voter turnout, slightly exceeding 80%, while Bihar and Uttrakhand stand at the lowest, around 50 -60%.
-
-
-    **Key Insights** - Turnout appears generally higher in northeastern and some southern states, suggesting that regional political dynamics, 
-    cultural factors, or campaign efforts may play a role in mobilizing voters in these areas.
-    """)
-elif summary_choice == 'Phase-wise Analysis':
-    st.write("""
-    **Polling Consistency Across Phases**
-
-    - **Consistent Voter Turnout**: Polled percentage remains steady across phases, despite variations in ad spend. 
-    - **Phase 4**: Highest polling at around **70%**.
-    - **Phases 3 and 5**: Slightly lower polling percentages, reflecting steady voter engagement.
-
-    **Key Insights**  
-    - **Ad Spend vs. Voter Turnout**: Increased ad spend in Phase 5 does not correspond with higher polling, suggesting that ad investment alone may not boost turnout.
-    - **Strategic Implications**: Parties may benefit from holistic strategies to drive engagement, particularly in phases with stable turnout levels.
-    """)
-
-
-elif summary_choice == 'Total Electors and Polled(%) by State':
-    st.write("""
-    **Summary: Elector Counts and Voter Turnout**
-
-    - **High Elector Counts in Rajasthan and Haryana**: Both states exceed **2 million electors**, with **turnout rates between 60% and 70%**.
-    - **High Turnout in Smaller Electorates**: Smaller states like **Arunachal Pradesh, Lakshadweep, and Sikkim** exceed **75% voter turnout**.
-
-    **Key Insights**  
-    - **Elector Count vs. Turnout**: Larger elector counts do not guarantee higher voter turnout, as seen in states with moderate engagement like Rajasthan and Haryana.
-    - **High Turnout in Small States**: Smaller states, such as Nagaland and Manipur, achieve high turnout, suggesting **effective voter mobilization strategies**.
-    - **Regional Disparities**: Turnout varies significantly by region, highlighting that **local factors impact voter engagement** beyond population size.
-    """)
-
-
-elif summary_choice == 'Correlation Heatmap of voter turnout and Ad Metrics':
-    st.write("""
-    **Summary: Correlation Analysis**
+with st.expander("📄View Summary"):
+    st.markdown("""
+        
+    **Correlation Analysis**
 
     - **Ad Spend vs Voter Turnout**: Weak correlation, indicating that **ad spending does not directly drive voter participation**.
     - **Total Electors vs Total Votes**: Positive correlation of **0.68**, showing a strong link between registered voters and votes cast.
@@ -470,20 +483,6 @@ elif summary_choice == 'Correlation Heatmap of voter turnout and Ad Metrics':
     - **Ad Spend Ineffectiveness**: Increased advertising does not guarantee higher turnout.
     - **Engagement Challenges**: Larger electorates show lower engagement, indicating the need for tailored mobilization strategies.
     - **Strategic Focus**: Political parties may benefit from re-evaluating ad strategies, focusing on factors that better drive voter turnout.
-     """)
-
-
-else: 
-    st.write("""
-    **Ad Spending Breakdown**
-
-    - **BJP**: Leads with **42.3%** of ad spending, showing substantial investment.
-    - **Ama Chinha Sankha Chinha**: Follows at **24.5%**, with competitive spending.
-    - **Indian National Congress**: Invests **23.7%**, close to Ama Chinha Sankha Chinha.
-
-    **Key Insights**  
-    - **Dominance of BJP**: BJP’s ad spend is nearly **double** that of Ama Chinha Sankha Chinha, showing its dominance in ad investment.
-    - **Relative Spending Gaps**: Combined spending by Ama Chinha Sankha Chinha and Indian National Congress is still less than BJP’s total, underscoring BJP's strong commitment to advertising.
     """)
 
 
