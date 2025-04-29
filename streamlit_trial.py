@@ -89,6 +89,14 @@ with col1:
     st.pyplot(plt)
     plt.clf()
 
+    with st.expander("📄 View Summary"):
+    st.markdown("""
+    **Summary:**
+    - There is a clear positive trend between the total bill and the tip.
+    - Customers tend to tip more when they spend more.
+    - However, the relationship is not strictly linear.
+    """)
+
 
 
 
